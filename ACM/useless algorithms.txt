@@ -1,0 +1,28 @@
+(Mostly) Useless algorithms
+by Noel Raley
+
+Radix sort (by least significant digit)
+    continue with next least significant digits
+    linear by size of largest element
+    
+Dayley sort / Counting sort
+    Written by Raley and Day
+    1. Create array of size max
+    2. Put each number at that index
+    3. remove empty spots
+Done!
+
+Sleep sort
+    wait x milliseconds
+    print x
+    
+Succ sort
+    copy = array.copy
+    while ( max >= 0 ) 
+        for i = 0 to max
+            if copy[i] > copy[i] + 1 // integer overflow
+                swap copy[i] with copy[max]
+                swap array[i] with array[max]
+                max--
+            else
+                copy[i]++

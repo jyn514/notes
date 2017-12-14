@@ -1,0 +1,4 @@
+math 548 - geometry, algebra, and abstracions
+prereq: 300 and 544
+
+will use computer algebra (matlab, implement yourself, etc.)

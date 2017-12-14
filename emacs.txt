@@ -1,0 +1,69 @@
+C: Control	M: Alt (stands for meta for some reason)
+
+Pointing:
+Up, down, left, right -- C-p, C-n, C-b, C-f
+Next, previous word -- M-f, M-b
+Beginning, end of line / sentence -- C-a, C-e / M-a, M-e
+Select area -- C-<Space>
+
+Viewing:
+Next, previous page -- C-v, M-v
+Rearrange around cursor -- C-l
+Beginning, EOF -- M-<, M->
+Find forward, backward -- C-s <string>, C-r <string>
+
+Editing:
+Delete next char -- C-d
+Kill next, previous word -- M-d, M-<Backspace>
+Kill current line, sentence -- C-k, M-k
+Kill selection -- C-w
+Paste (aka yank) -- C-y
+Cycle pastes -- M-y
+Undo -- C-/ or C-_ or C-x u
+Format line breaks -- M-q
+
+Windows:
+Make buffer full-screen -- C-x 1
+View, open buffers -- C-x C-b, C-x b
+Scroll next buffer -- C-M-v
+Switch focus -- C-x o
+
+Files:
+Exit, sleep -- C-x C-c, C-z
+Open -- C-x C-f
+Save, save all -- C-x C-s, C-x s
+
+Commands:
+Help -- C-h
+Cancel -- C-g
+Numeric -- C-u
+Autocomplete -- <Space> or <Tab>
+Ultimate escape sequence -- <ESC><ESC><ESC>
+Versioning commands -- v
+
+Help topics (start with C-h):
+Mode -- m
+Command -- c <command>
+Detailed command -- k <command>
+Function -- f <named-function>
+Variables -- v
+Apropros -- a
+Info/Manpages -- i
+
+Named commands (start with M-x):
+replace-string <find> <replace>
+recover-file
+<mode>-mode
+make-frame (new graphical window)
+delete-frame
+
+Modes:
+Fundamental (treats apostrophes as seperators)
+Lisp
+Text (treats apostophes as part of words)
+
+Minor modes -- M-x <option>-mode
+auto-fill (similar to word wrap but inserts newline)
+
+Options:
+Margin size -- C-x f <number>

@@ -1,0 +1,47 @@
+Red vs. Blue
+# seccdc.org/rules.html
+# cucyber.net/documents/hackpack.html
+
+Setup:
+Firewall -> Security onion -> various computers
+Ubuntu DNS
+
+First 30 minutes: no red team attacks
+kick unauthorized users
+check crontabs, permissions, processes
+change passwords
+kill uneeded services
+
+Gold team scores
+White team are active users
+
+Services:
+DNS
+Webapps
+Email 
+AD (active directory, whatever that means)
+	uses 'golden token'
+Databases
+Custom services (ping) (don't block ping)
+
+How to block ping:
+`ping` sends ICMP packet (lots and lots of debug info)
+Can block with firewall
+
+SECCDC: less technical
+8 people
+security policies
+timed
+write letters to CEO
+
+PCDC: techincal stuff
+6 people
+reverse engineering
+wireshark, etc.
+
+Things to learn:
+Basic linux security (permissions, services, cronjobs)
+Basic network concepts (firewalls, iptables/firewalld (CentOS), ufw)
+Windows management (AD, etc.)
+Look on dreamspark
+

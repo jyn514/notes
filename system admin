@@ -1,0 +1,50 @@
+uname -a
+uptime
+top
+last
+df, du
+fdisk, gparted
+crond, crontab
+
+Accounts:
+/etc/passwd
+    username:password:l
+    /etc/shadow stores passwords (readable only by root)
+    
+/etc/group
+    username:group:
+NIS, LDAP for retrieving info from central server
+
+
+File systems:
+
+EXT4 most common
+ZFS - 'smart file system'
+    makes copies adn snapshots
+
+NFS - Network File System
+    e.g. /acct
+
+RAID (fancy) - Redundant Array of Independent Disks
+    Combines multiple physical disks to logical disk
+    Levels:
+        Linear - concatenate (treat as larger disk)
+        0 - striping    (faster I/O, useless if one fails)
+        1 - mirroring   (Redundant, all but one can fail)
+        5 - striping with distributed parity (?)
+        6 - P + Q redundancy (2 disks can fail)
+    Hardware and Software; hardware faster
+    
+Swap
+    Speed difference:
+    CPU - clock speed, usually gigahertz
+    RAM - 1000x slower
+    Disk - 1000000x slower
+    
+Network config:
+    IP address (UID)
+    Public vs. private ip
+    DHCP - dynamic host config protocol (dynamic ips)
+    MAC address (UUID)
+    CDMA (telephony (?))
+    

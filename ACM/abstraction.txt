@@ -1,0 +1,15 @@
+Language is an abstraction
+Computers are an abstraction over silicon
+
+Non-zero-cost abstractions (100x for python vs c)
+Because computers are so fast, rarely noticed
+Allows faster development, at a cost
+
+Can change where we pay the cost: (rust)
+-> at compile-time (one-time cost)
+
+Game engines
+Drivers
+node.js
+
+constant abstractions (think libraries)

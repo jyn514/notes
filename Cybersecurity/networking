@@ -1,0 +1,97 @@
+Driver uses layer 1 (bits)
+Switches use layer 2 (mac addresses)
+Routers use layer 3 (ip addresses) (also known as gateway), usually 192.168.1.1 on subnet on 255.255.255.0
+
+*must* have gateway to cross layer 3 boundaries; otherwise can use switch
+(line between switch and routers blurred in modern net)
+
+Routers -> switches -> commputers
+
+multicast (to any device on same router)
+
+firewalls:
+usually behind router
+alows blocking of certain ports, subnets, etc
+ID by port doesn't work anymore (skype uses 443, etc); need to look at IP address, behavior, url
+as general rule, only allow expected traffic
+
+Client firewalls: iptables
+-F (flush)
+-P protocol [INPUT|FORWARD|OUTPUT] [DROP|ALLOW]
+-s source
+Block all from certain address: iptables -A INPUT -s 192.168.0.5 -j DROP 
+
+home routers are usually combination of router, switch, and WAP
+
+
+IPV4: most widely used TCP/IP suite
+uses 32-bit addresses (2^32 = 4294967296 addresses)
+first address (usually) gateway, last address always broadcast (sends to all on network)
+Have run out of public ip addresses. (need to use NAT)
+routers usually have different address for each subnetwork (ie. 192.168.[0/1].1 for 2 subnets) 
+.0 defines the network
+
+if address unknown (e.g. public address), set to gateway upstream (default gateway)
+DNS servers do the same thing
+can put rules for computers that don't exist
+
+Content caching: multiple servers hosting, DNS gives you the closest
+can also do 'IP load-balancing'
+
+NAT (network address translation):
+    dependent because not enough public addresses
+    1 public leads to multiple private
+    PAT (different ports lead to different private addresses)
+    router can rewrite port number to see which private address it came from
+
+DNS:
+    NS record for domains (example.com NS ns1.somedomain.com)
+    A record: name A <ipv4>
+    AAA: name AAAA <ipv6>
+    CNAME alias: example.com CNAME example.net
+    MX: gmail.com MX <priority #>  mail.google.com
+    PTR: opposite of A
+
+paloalto
+DynDNS
+
+ports
+22: SSH
+23: telnet, completely unencrypted
+25: smtp, unencrypted
+143: imap, unencrypted
+53: DNS
+80: http
+443: https
+More in /etc/services
+
+ICMP - layer 4 network request - field type 8
+
+
+DHCP dynamic host control protocol
+
+
+<ip>/24 - mask is 255.255.255.0 (genmask or netmask)
+32 means all masked (true IP address)
+Route summarization - ^ mask is subnet
+every subnet burns 3 addresses: net address, gateway, broadcast
+
+route commands:
+ip route show
+route add default gw 192.168.0.1 <interface>
+ip route add <subnet> via <gateway>
+
+
+More iptables examples:
+No connections:
+Chain INPUT (policy DROP)
+ACCEPT  all -- anywhere
+Chain FORWARD(policy DROP)
+Chain OUTPUT (policy ACCEPT)
+
+ONLY port 80 io:
+Chain INPUT (policy drop)
+ACCEPT tcp dpt:http
+ACCEPT udp dpt:domain
+
+mxtoolbox

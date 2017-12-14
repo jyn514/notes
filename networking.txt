@@ -1,0 +1,7 @@
+bits per second: bandwidth (not speed)
+limited by interference between bits
+fiber optic uses light instead of current
+
+coaxial cable (sheathing with copper in middle)
+Cable modem ^
+Competition between cable and telephone companies
