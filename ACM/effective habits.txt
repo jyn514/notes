@@ -1,0 +1,82 @@
+# How to be an effective computing student
+
+## Getting the most out of your class
+- Read a book
+    - Not just the course text (course text sometimes . . . not great)
+- Go to office hours
+    - Talk about research
+
+## Succeeding in class
+- Read
+- Do homework
+- Don't skip
+
+- 3 types of classes:
+ 1. easy
+ 2. hard
+ 3. dangerous - appear easily, actually hard. Spot these early!
+
+- Don't leave points on the table.
+- Use git!
+
+## Learn outside of class
+### Side projects
+- keep an ideas notebook
+- don't be afraid to start
+- don't be afraid to leave things unfinished
+
+### Stay on top of current affairs
+- https://news.ycombinator.com
+- https://reddit.com/r/programming
+
+### Read nonfiction - "any kind of factual information you can consume is helpful to your brain!"
+
+### Join a club
+- ACM :), IEEE, Cybersec, CGC
+
+## Communicating with instructors
+- Some formality required
+- Subject important (including course code)
+- Spelling important!
+- Say who you are
+- Use words like 'appreciate'
+- Attach work you've done
+- Argue for points (but have a real case)
+- Ask for extra credit (be prepared to be turned down)
+- Bring up grades PROMPTLY
+
+## Patterns
+### Anti-patterns
+- Skipping lecture
+- Turning in work late (or not at all), especially early in semester
+- Resting on laurels
+- Bad emails
+
+### Effective patterns
+- Coming to office hours
+- Asking questions
+- Working with others
+
+## Shooting yourself in the foot
+- Material builds
+- Don't skate by
+- You need to know this stuff
+
+## Important courses
+- 146 -> Math 374 (Discrete structures)
+- 374 -> 350, 531 (Algorithms, Compilers)
+- 215 -> 240      (C++)
+- 212, 215 -> 313, 611 (Digital circuits)
+- STAT 509 -> 317 (Formal queuing theory)
+
+
+## Resources
+### Books
+- The AWK Programming Language (written by creators of awk)
+- Social Engineering: The Art of Human Hacking
+- The UNIX Programming Environment  (by Ken Thompson)
+- The C Programming Language
+
+### YouTube
+- TheNewBoston
+
