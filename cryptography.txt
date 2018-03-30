@@ -1,0 +1,150 @@
+Computerphile!
+Numberphile!
+Philosophile!
+
+Classes:
+557 - crypto w/ buelll
+552 - info sec w/ farkas
+math 546, 547 - something?
+IAS - Information Assurance Specialization (CNSS041)
+
+wikipedia, youtube, etc.
+
+terms: Block stream asymmetric hashes signing
+systems: rsa des aes ssl wep wpa
+
+threat models:
+man in the middle
+eavesdropping -> Confidentiality, tampering -> Integrity
+
+basic ciphers:
+caeser cipher -> plaintext = (plaintext + offset) % alphabet
+    if offset == 13, called ROT13
+    vulnerable to frequency sampling
+vigenere cipher
+    use word as offset
+    reduces frequency
+vernam one time pad
+    key is random and never repeats
+    only value crackable is length of message
+    common to use atmospheric radiation or radioactive sample
+    extremely impracticle to move keys
+Scytale transposition cipher
+    rearranges letters
+    
+two basic types: substitution + transposition; most modern ciphers use both
+
+Block vs Stream
+    Block: ( few classical examples )
+        encrypt one group at a time
+        error propagation
+    Stream:
+        encrypt one character at a time
+        very fast, little error propagation
+        vulnerable to frequency analysis, insertion, modification
+
+Block
+    arbitrary length message
+    Naive method:
+        divide into blocks
+        apply cipher to each
+        Problem: although chunks encrypted, overall message not
+    Counter mode:
+        unique encryption for each block
+        key = nonce + counter
+        counter++
+        for modern ciphers, counter adds no vulnerablility
+    Cipherblock chaining:
+        each block depends on previous
+        XOR plaintext with nonce
+        XOR next text with encrypted block
+        identical blocks will not encrypt to the same
+        disadvantage: must encrypt in order (slow)
+
+Symmetric: (XOR)
+    same key for decryption and encryption
+    very quick
+    difficult to distribute keys
+    need unique key for each recipient (n*(n-1)/2 keys for n recipients)
+    
+asymmetric key:
+    slow
+    no need for established channel
+    only need n keys for n recipients
+    different keys for encryption and decryption
+    used for RSA
+    signatures: encrypt with your private key!!!
+
+asymmetric used to distribute Symmetric
+-> SSL/TLS
+    SSL old, TLS new
+    certificate
+
+    
+Hashes:
+    deterministic
+    fast
+    collision resistant
+    one-way
+    avalanche effect
+    SHA: "Secure Hashing Algorithm"
+    Salting : different random key added to each password
+RSA:
+    take large prime numbers (> 100 digits long) and multiply to get n
+    find e > 1 such that greatest common factor to (p-1)*(q-1) is 1
+    find d such that d*e is congruent to 1%(p-1)*(q-1)
+    "If you're interested in this take MATH 546 (abstract algebra) or crypto (CSCE 551)"
+    public: n, e
+    private: n, d
+    relies on fact that factoring n is vey hard (if numbers are big enough)
+    will be defeated by quantum computing very soon
+    Can't be used if m > n
+    
+    ex: p=11, q=19, n=p*q=209, e=7, d=103 (7*103 * 180 == 1)
+        public(209, 7)
+        private(209, 103)
+        m = message
+        m**e % n gives encrypted
+
+    coprime: have no factors in common
+    
+DES: ("debicryption standard")
+    64-bit block cipher (now uses 128 in order to be secure)
+    Symmetric key (56 bits)
+    Uses 'feistel networks'
+    vulnerable to brute force (takes ~10 min with this laptop)
+
+AES: 128 bit block cipher ("Rijndael")
+    128, 192, or 256 bit Symmetric key
+    "Extensive wikipedia article"
+    1. extensive key expansion, uses different parts of key for each block
+    2. initial encryption (add key to text)
+    3. further rounds
+        a. subbytes (mathy stuff with matrices)
+        b. shift rows - every nth row shifted one left (prevents linear  analysis)
+        c. mix columns
+        d. bitwise XOR (??)
+    4. final round doesn't mix columns
+    "all table lookups, not much actual computing...just a bunch of simple functions put together"
+    will have a very long lifetime
+    transposition works better with more rounds
+   
+Cryptanalysis:
+    differential Cryptanalysis
+        see what changes small changes make in output
+        2**47 known plaintexts
+    linear:
+        ?
+        takes 2**43 known plaintexts
+    
+WEP:
+    uses preshared secrets (24 bits)
+    very similar initialization vectors, statistical attacks, related key attacts
+WPA:
+    WPA-personal backwards compatible with WEP, more complicated initialization
+    WPA2-enterprise replaces RC4 with AES
+    
+Takeaways:
+    "crypto is hard as shit"
+    "there's a reason it's open source"
+    "experts/smart people come up with these"

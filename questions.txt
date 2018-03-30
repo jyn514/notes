@@ -1,0 +1,8 @@
+What is the story on using nmap on networks we don't control?
+	Don't do that.
+
+Can we ping?
+	Not on the university network.
+	
+Why?
+	Some stuff crashes when you ping it.
